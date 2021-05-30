@@ -1,10 +1,14 @@
 var canvas = document.getElementById("myCanvas");
+// 建立ctx變數儲存"2D渲染環境"
 var ctx = canvas.getContext("2d");
+
 var ballRadius = 10;
+
 var x = canvas.width/2;
 var y = canvas.height-30;
-var dx = 2;
-var dy = -2;
+var dx = Math.random()*5;
+var dy = -(Math.random()*5);
+
 var paddleHeight = 10;
 var paddleWidth = 75;
 var paddleX = (canvas.width-paddleWidth)/2;
@@ -75,13 +79,15 @@ function collisionDetection() {
   }
 }
 
+// 建立球
 function drawBall() {
   ctx.beginPath();
-  ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-  ctx.fillStyle = "#0095DD";
+  ctx.arc(x, y, ballRadius, 0, Math.PI*2, false);
+  ctx.fillStyle = "#dd0016";
   ctx.fill();
   ctx.closePath();
 }
+
 function drawPaddle() {
   ctx.beginPath();
   ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
@@ -89,6 +95,7 @@ function drawPaddle() {
   ctx.fill();
   ctx.closePath();
 }
+
 function drawBricks() {
   for(var c=0; c<brickColumnCount; c++) {
     for(var r=0; r<brickRowCount; r++) {
