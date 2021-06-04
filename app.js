@@ -22,7 +22,7 @@ var brickPadding = 10;
 var brickOffsetTop = 30;
 var brickOffsetLeft = 30;
 var score = 0;
-var lives = 2;
+var lives = 100;
 
 var bricks = [];
 for(var c=0; c<brickColumnCount; c++) {
@@ -70,7 +70,7 @@ function collisionDetection() {
           b.status = 0;
           score++;
           if(score == brickRowCount*brickColumnCount) {
-            alert("真厲害!!居然破關了");
+            alert("生日快樂!!大大，恭喜你破關了");
             document.location.reload();
           }
         }
